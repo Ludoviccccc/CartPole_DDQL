@@ -54,24 +54,5 @@ def updateQ(Env,state, action,new_state, reward, terminated, Qvalue,Qprim,optimi
     listLossQ.append(loss.detach().to("cpu"))
     return listLossQ
 
-#def updateQ(Samp,Qvalue,Qprim,optimizerQ, Loss,gamma,listLossQ):
-#    T_ = torch.zeros((len(Samp["action"]),Qvalue.Na))
-#    for j,a in enumerate(Qvalue(Samp["next"]["observation"]).argmax(dim=1)):   
-#        T_[j,a] = 1
-#    Qprim_maxQvalue = torch.mul(Qprim(Samp["next"]["observation"]),T_).sum(dim=1)
-#    target = Samp["next"]["reward"].squeeze() + gamma*Qprim_maxQvalue
-#    target = target.detach()
-#    optimizerQ.zero_grad()
-#    states = torch.eye(Qvalue.Na)
-#    T_action = torch.zeros((len(target),Qvalue.Na))
-#    for j,a in enumerate(Samp["action"]):   
-#        T_action[j,a] = 1
-#    Qsa = torch.mul(Qvalue(Samp["observation"]),T_action).sum(dim=1)
-#    assert Qsa.shape==target.shape, "verifier shape"
-#    loss = Loss(Qsa.squeeze(),target.squeeze())
-#    loss.backward()
-#    optimizerQ.step()
-#    listLossQ.append(loss.detach().to("cpu"))
-#    return listLossQ
 def swap(Qprim, Qvalue):
     Qprim.load_state_dict(Qvalue.state_dict())
