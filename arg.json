@@ -1,0 +1,12 @@
+{
+	"train": false,
+	"test_mode":true,
+	"start":9999,
+	"epsilon":0.1,
+	"gamma" : 0.9,
+	"lr" : 1e-3,
+	"n_episodes" : 100,
+	"K" : 1,
+	"loadpath" : "load",
+	"loadopt" : "opt"
+}
