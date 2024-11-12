@@ -1,12 +1,13 @@
 {
 	"train": false,
 	"test_mode":true,
-	"start":9999,
-	"epsilon":0.1,
-	"gamma" : 0.9,
-	"lr" : 1e-3,
-	"n_episodes" : 100,
-	"K" : 1,
+	"start":200,
+	"epsilon":0.0,
+	"gamma" : 0.99,
+	"lr" : 1e-4,
+	"n_episodes" : 200,
+	"K" : 5,
 	"loadpath" : "load",
-	"loadopt" : "opt"
+	"loadopt" : "opt",
+	"pathImage": "image"
 }
